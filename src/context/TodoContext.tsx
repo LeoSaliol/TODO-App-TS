@@ -93,7 +93,6 @@ export function TodoContextPovider({ children }: Props) {
         } else if (activeFilter === 'completed') {
             const completed = tasksList.filter((t) => t.completed === true);
             setTaskFilter(completed);
-            console.log(activeFilter);
         }
     }, [activeFilter, tasksList]);
     const value = {

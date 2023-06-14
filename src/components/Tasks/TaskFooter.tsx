@@ -7,8 +7,8 @@ interface Props {
 export default function TaskFooter({ tasks }: Props) {
     const { deleteAllTask } = useTask();
     return (
-        <div>
-            <div className=" overflow-hidden rounded-b-lg  bg-veryLightGray  shadow-xl dark:bg-veryDarkDesaturated dark:shadow-2xl  ">
+        <>
+            <div className=" overflow-hidden rounded-b-lg  bg-veryLightGray  shadow-xl mt-2 mx-10 dark:bg-veryDarkDesaturated dark:shadow-2xl  ">
                 <section className="h-[4rem] w-full ">
                     <div className="flex h-full items-center justify-between px-5   text-[0.8em] font-bold text-darkGrayishBlue dark:text-VeryDarkGrayishBlue md:text-[1rem]">
                         <p> {tasks.length} items left</p>
@@ -26,13 +26,10 @@ export default function TaskFooter({ tasks }: Props) {
                     </div>
                 </section>
             </div>
-            <div className="  dark:shadow-2xl md:hidden ">
-                <ActionsButtons />
-            </div>
 
             <footer className="mx-10 mt-14 font-bold text-darkGrayishBlue dark:text-VeryDarkGrayishBlue md:text-[1.1rem]">
                 Drag and drop to reoder list
             </footer>
-        </div>
+        </>
     );
 }

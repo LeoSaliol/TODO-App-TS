@@ -12,7 +12,7 @@ function App() {
     const { changeDarkMode, theme } = useDarkMode();
     return (
         <TodoContextPovider>
-            <main className="h-screen  bg-veryLightGray dark:bg-veryDarkBlue">
+            <main className="">
                 <div className=" dark:bg-veryDarkBlue">
                     <div className=" absolute w-full dark:bg-veryDarkBlue ">
                         <img

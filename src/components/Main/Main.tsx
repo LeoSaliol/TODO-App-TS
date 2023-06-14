@@ -12,7 +12,7 @@ export default function Main() {
             {/* //! Input para crear tarea */}
             <InputTask />
             {/* //! Cuerpos donde se pintan las tareas */}
-            <div className=" mx-10  overflow-hidden rounded-lg ">
+            <div className=" mx-10  overflow-hidden rounded-t-lg ">
                 <div className="min-h-[90px] bg-veryLightGray dark:bg-veryDarkDesaturated dark:text-darkBlueHover">
                     {taskFilter.length > 0 ? (
                         <Reorder.Group
@@ -36,8 +36,8 @@ export default function Main() {
                     )}
                 </div>
                 {/* //! Footer Main */}
-                <TaskFooter tasks={taskFilter} />
             </div>
+            <TaskFooter tasks={taskFilter} />
         </>
     );
 }

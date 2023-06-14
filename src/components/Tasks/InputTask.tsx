@@ -6,6 +6,11 @@ export default function InputTask() {
     const { task, handleSubmit, handleChange } = useTask();
     return (
         <motion.div
+            whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.3 },
+            }}
+            animate={{ transition: { duration: 2 } }}
             layout
             className="mx-10 mt-9 mb-7 flex  items-center gap-3 overflow-hidden rounded-xl bg-veryLightGray dark:border-[1px] dark:border-none   dark:border-VeryDarkGrayishBlue dark:bg-veryDarkDesaturated  md:rounded-lg "
         >
