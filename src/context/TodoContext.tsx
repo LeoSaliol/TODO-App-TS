@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Task } from '../interface/TasksInterface';
+import { getItem, setItem } from '../utils/localstorage';
 
 type ContextProps = {
     task: string;
     setTask: React.Dispatch<React.SetStateAction<string>>;
+    setTasksList: React.Dispatch<React.SetStateAction<Task[]>>;
     taskFilter: Task[];
     setTaskFilter: React.Dispatch<React.SetStateAction<Task[]>>;
     activeFilter: string;
@@ -26,7 +28,7 @@ const TodoContext = React.createContext<ContextProps | undefined>(undefined);
 export function TodoContextPovider({ children }: Props) {
     const [task, setTask] = useState('');
 
-    const [tasksList, setTasksList] = useState<Task[]>([]);
+    const [tasksList, setTasksList] = useState<Task[]>(getItem('tasks'));
     const [taskFilter, setTaskFilter] = useState(tasksList);
     const [activeFilter, setActiveFilter] = useState('all');
 
@@ -49,6 +51,7 @@ export function TodoContextPovider({ children }: Props) {
         const temp = [newTask, ...tasksList];
 
         setTasksList(temp);
+        setItem('tasks', temp);
 
         setTask('');
     };
@@ -65,6 +68,7 @@ export function TodoContextPovider({ children }: Props) {
         const temp = [...tasksList];
         temp.splice(index, 1);
         setTasksList(temp);
+        setItem('tasks', temp);
     };
 
     const deleteAllTask = () => {
@@ -98,6 +102,7 @@ export function TodoContextPovider({ children }: Props) {
     const value = {
         task,
         setTask,
+        setTasksList,
         taskFilter,
         setTaskFilter,
         activeFilter,

@@ -5,7 +5,7 @@ import InputTask from '../Tasks/InputTask';
 import TaskFooter from '../Tasks/TaskFooter';
 
 export default function Main() {
-    const { taskFilter, setTaskFilter } = useTask();
+    const { taskFilter, setTasksList } = useTask();
 
     return (
         <>
@@ -16,10 +16,10 @@ export default function Main() {
                 <div className="min-h-[90px] bg-veryLightGray dark:bg-veryDarkDesaturated dark:text-darkBlueHover">
                     {taskFilter.length > 0 ? (
                         <Reorder.Group
-                            className="  dark:bg-veryDarkDesaturated dark:text-darkBlueHover"
+                            className="  dark:bg-veryDarkDesaturated pb-4 dark:text-darkBlueHover"
                             axis="y"
                             values={taskFilter}
-                            onReorder={setTaskFilter}
+                            onReorder={setTasksList}
                         >
                             <AnimatePresence>
                                 {taskFilter.map((item, index) => (

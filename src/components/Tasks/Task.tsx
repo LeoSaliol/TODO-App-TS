@@ -35,6 +35,7 @@ export default function TaskItem({ task, index }: Props) {
             exit="hidden"
             custom={{ delay: (index + 1) * 0.2 }}
             layoutId={task.id}
+            whileHover={{ scale: 1.01 }}
             className="flex h-14  items-center gap-2 border-b-[1px] border-lightGrayishBlue bg-veryLightGray py-2 dark:border-VeryDarkGrayishBlue dark:bg-veryDarkDesaturated md:h-[4.2rem]"
         >
             <button
