@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const getItem = (key: string): any => {
     return localStorage.getItem(key) !== null
         ? JSON.parse(localStorage.getItem('tasks')!)

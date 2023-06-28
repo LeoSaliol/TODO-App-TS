@@ -1,4 +1,4 @@
-import { AnimatePresence, Reorder } from 'framer-motion';
+import { Reorder } from 'framer-motion';
 import { useTask } from '../../context/TodoContext';
 import TaskItem from '../Tasks/Task';
 import InputTask from '../Tasks/InputTask';
@@ -9,9 +9,11 @@ export default function Main() {
 
     return (
         <>
-            {/* //! Input para crear tarea */}
+            {/* //-- Input para crear tarea // */}
             <InputTask />
-            {/* //! Cuerpos donde se pintan las tareas */}
+
+            {/* //-- Cuerpos donde se pintan las tareas // */}
+
             <div className=" mx-10  overflow-hidden rounded-t-lg ">
                 <div className="min-h-[90px] bg-veryLightGray dark:bg-veryDarkDesaturated dark:text-darkBlueHover">
                     {taskFilter.length > 0 ? (
@@ -21,13 +23,14 @@ export default function Main() {
                             values={taskFilter}
                             onReorder={setTasksList}
                         >
-                            <AnimatePresence>
-                                {taskFilter.map((item, index) => (
-                                    <Reorder.Item key={item.id} value={item}>
-                                        <TaskItem task={item} index={index} />
-                                    </Reorder.Item>
-                                ))}
-                            </AnimatePresence>
+                            {taskFilter.map((item) => (
+                                <Reorder.Item
+                                    key={item.id}
+                                    value={item}
+                                >
+                                    <TaskItem task={item} />
+                                </Reorder.Item>
+                            ))}
                         </Reorder.Group>
                     ) : (
                         <p className="pt-[25px] text-[2rem] font-bold text-veryLightGrayishBlue">
@@ -35,8 +38,9 @@ export default function Main() {
                         </p>
                     )}
                 </div>
-                {/* //! Footer Main */}
+                {/* //-- Footer Main // */}
             </div>
+
             <TaskFooter tasks={taskFilter} />
         </>
     );

@@ -26,6 +26,9 @@ export default function TaskFooter({ tasks }: Props) {
                     </div>
                 </section>
             </div>
+            <div className=" mx-10  dark:shadow-2xl md:hidden ">
+                <ActionsButtons />
+            </div>
 
             <footer className="mx-10 mt-14 font-bold text-darkGrayishBlue dark:text-VeryDarkGrayishBlue md:text-[1.1rem]">
                 Drag and drop to reoder list

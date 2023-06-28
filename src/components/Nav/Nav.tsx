@@ -27,7 +27,7 @@ export default function Nav({ theme, changeDarkMode }: Props) {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.7, ease: 'backOut' }}
-                className=" flex w-full  justify-between gap-5 px-10 text-darkBlueHover dark:text-darkBlueHover"
+                className=" flex w-full  justify-between gap-5 px-10 text-darkBlueHover dark:text-darkBlueHover "
             >
                 <h1 className="text-[2rem] font-bold tracking-[0.75rem] md:text-[2.5rem] lg:text-[2.5rem]  ">
                     TODO

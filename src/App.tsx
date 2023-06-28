@@ -12,9 +12,10 @@ function App() {
     const { changeDarkMode, theme } = useDarkMode();
     return (
         <TodoContextPovider>
-            <main className="">
-                <div className=" dark:bg-veryDarkBlue">
-                    <div className=" absolute w-full dark:bg-veryDarkBlue ">
+            <main className="dark:bg-veryDarkBlue bg-veryLightGray  dark:text-darkBlueHover">
+                <div>
+                    {/* //-- Imagenes //  */}
+                    <div className=" absolute w-full  ">
                         <img
                             src={`${theme === 'dark' ? bgMobDark : bgMobLight}`}
                             alt=""
@@ -28,14 +29,18 @@ function App() {
                     </div>
                     <section className=" relative z-20 flex w-full justify-center text-center    ">
                         <div className="w-[90%] pt-12 sm:w-[80%] md:max-w-[70%] lg:max-w-[715px] ">
+                            {/* //-- DarkMode // */}
                             <Nav
                                 theme={theme}
                                 changeDarkMode={changeDarkMode}
                             />
+
+                            {/* //-- Main //   */}
                             <Main />
                         </div>
                     </section>
                 </div>
+                {/* //-- Footer //   */}
                 <div className=" mt-16 pb-10 text-center text-[0.9rem] dark:text-veryLightGrayishBlue ">
                     Challenge by{' '}
                     <a

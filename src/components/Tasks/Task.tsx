@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from 'framer-motion';
 import IconsCheck from '../../assets/icon-check.svg';
 import CrossIcon from '../../Icons/CrossIcon';
@@ -6,35 +7,13 @@ import { Task } from '../../interface/TasksInterface';
 
 interface Props {
     task: Task;
-    index: number;
 }
 
-const variants = {
-    hidden: {
-        x: -650,
-        transition: {
-            duration: 0.5,
-        },
-    },
-    visible: ({ delay }: any) => ({
-        x: 0,
-        transition: {
-            duration: 0.5,
-            delay,
-        },
-    }),
-};
-export default function TaskItem({ task, index }: Props) {
+export default function TaskItem({ task }: Props) {
     const { deleteTask, completedTask } = useTask();
 
     return (
         <motion.div
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            custom={{ delay: (index + 1) * 0.2 }}
-            layoutId={task.id}
             whileHover={{ scale: 1.01 }}
             className="flex h-14  items-center gap-2 border-b-[1px] border-lightGrayishBlue bg-veryLightGray py-2 dark:border-VeryDarkGrayishBlue dark:bg-veryDarkDesaturated md:h-[4.2rem]"
         >
@@ -60,7 +39,8 @@ export default function TaskItem({ task, index }: Props) {
             </button>
             <p
                 className={`mt-1 mr-auto text-[1em] capitalize ${
-                    task.completed && 'line-through'
+                    task.completed &&
+                    'line-through dark:text-darkGrayishBlueDark'
                 } `}
             >
                 {task.task}
