@@ -8,4 +8,4 @@
 
 ## Skills used in the project
 
--   React // Framer Motion // Tailwinds
+-   React // TypeScript // Framer Motion // Tailwinds
